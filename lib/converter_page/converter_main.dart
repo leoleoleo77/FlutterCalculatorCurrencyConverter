@@ -10,7 +10,7 @@ class ConverterPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go back!'),
+          child: const Text('Go back!'),
         ),
       ),
     );
