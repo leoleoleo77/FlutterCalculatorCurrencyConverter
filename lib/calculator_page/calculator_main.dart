@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bestest_calculator/calculator_page/buttons_page.dart';
+import 'package:bestest_calculator/calculator_page/result_page.dart';
+import 'package:bestest_calculator/saved_data.dart';
 class CalculatorPage extends StatefulWidget {
   const CalculatorPage({super.key});
   @override
@@ -7,19 +9,22 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+  void _update(String calculatorInput) {
+    setState(() {
+      userInput = calculatorInput;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          flex: 35,
-          child: Container(
-            color: Colors.blue,
-          ),
+          flex: 38,
+          child: ResultPage(input: userInput),
         ),
-        const Expanded(
-          flex: 65,
-          child: ButtonsPage(),
+        Expanded(
+          flex: 62,
+          child: ButtonsPage(updateInput: _update),
         ),
       ],
     );

@@ -5,6 +5,7 @@ import 'package:bestest_calculator/eye_candy/ui_constants.dart';
 //https://www.figma.com/community/file/1207732029094166615/calculator-mobile-app-ui-deisgn
 //https://www.scalefocus.com/wp-content/uploads/2023/10/SF_ScaleCalc_banner_ipad_1d-1536x1151.webp
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
