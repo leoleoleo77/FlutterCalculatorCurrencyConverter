@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/calculator_page/my_button.dart';
+import 'package:bestest_calculator/calculator_page/calc_button.dart';
 import 'package:bestest_calculator/eye_candy/ui_constants.dart';
 
 /// A page containing the layout for the calculator buttons.

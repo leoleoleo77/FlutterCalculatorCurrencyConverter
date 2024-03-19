@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
-import 'package:bestest_calculator/api_model/api_urls.dart';
-import 'package:bestest_calculator/api_model/data_formatting.dart';
-import 'package:bestest_calculator/api_model/rates_model.dart';
+import 'package:bestest_calculator/converter_page/api_model/api_urls.dart';
+import 'package:bestest_calculator/converter_page/api_model/data_formatting.dart';
+import 'package:bestest_calculator/converter_page/api_model/rates_model.dart';
 
 /// The fetchRates function makes a GET request.
 /// It uses the http.get method from the http package to send the request,

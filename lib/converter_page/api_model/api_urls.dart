@@ -1,4 +1,4 @@
-import 'package:bestest_calculator/api_model/key.dart';
+import 'package:bestest_calculator/converter_page/api_model/key.dart';
 
 class AppUrl {
   static const String baseUrl = 'https://openexchangerates.org/api/';

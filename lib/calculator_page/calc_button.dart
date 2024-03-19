@@ -20,7 +20,7 @@ class CalculatorBtn extends StatefulWidget {
     super.key,
     this.btnColor,
     this.btnType = 'default',
-    this.textColor = Colors.white,
+    this.textColor = BlueWhite,
     required this.btnDisplay,
     required this.btnPressed,
     this.textSize = 28,
@@ -34,31 +34,50 @@ class CalculatorBtn extends StatefulWidget {
 class _CalculatorBtnState extends State<CalculatorBtn> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: btnWidth(context),
       height: btnHeight(context),
-      decoration: BoxDecoration(
-          color: widget.btnColor,
-          borderRadius: widget.borderRadius
-      ),
-      child: TextButton(
-          onPressed: () => widget.btnPressed(widget.btnDisplay.toString().substring(0, 1)),
-          style: TextButton.styleFrom(
+      child: ElevatedButton(
+          onPressed: () {
+            widget.btnPressed(widget.btnDisplay.toString().substring(0, 1));
+          },
+          /*style: TextButton.styleFrom(
+            splashFactory: NoSplash.splashFactory,
             textStyle: const TextStyle(
               fontWeight: FontWeight.normal,
             ),
+          ),*/
+          style: ButtonStyle(
+            backgroundColor: getColor(),//MaterialStateProperty.all<Color>(widget.btnColor!),
+            splashFactory: NoSplash.splashFactory,
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: widget.borderRadius,
+              ),
+            ),
           ),
-          child: Center(
-              child: btnCover()
-          )
+          child: btnCover()
       ),
     );
+  }
+
+  MaterialStateProperty<Color> getColor() {
+    getColor(Set<MaterialState> states) {
+      if (states.contains(MaterialState.pressed)) {
+        return widget.btnColor!.withOpacity(0.5);
+      } else {
+        return widget.btnColor!;
+      }
+    }
+    return MaterialStateProperty.resolveWith(getColor);
   }
 
   /// Returns the width of the button based on its type.
   double btnWidth(BuildContext context) {
     if (widget.btnType == 'wide') {
       return screenWidth(context) * 0.46 + 5;
+    } else if (widget.btnType == 'conv') {
+      return screenWidth(context) * 0.25;
     }
     return screenWidth(context) * 0.23;
   }
