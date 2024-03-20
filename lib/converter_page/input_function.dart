@@ -19,14 +19,37 @@ String HandleInput(String input) {
     String temp = ddValue1;
     ddValue1 = ddValue2;
     ddValue2 = temp;
+
+    if (convOut1 != '' && convOut2 != '') {
+      convOut2 = _convert();
+    }
+
     return convOut1;
   } else if (input == 'AC') {
     convOut1 = '';
-    return convOut1;
-  } else if (input == 'Convert') {
-    convOut2 = convOut1;
+    convOut2 = '';
     return convOut1;
   }
-  return input;
+  return convOut1;
+}
+
+String GiveOut(String input) {
+  if (input == 'Convert') {
+    return _convert();
+  }
+  return convOut2;
+}
+
+String _convert() {
+  String amount = convOut1;
+  Map exchangeRates = ratesGlobal;
+  String currencyBase = ddValue1;
+  String currencyFinal = ddValue2;
+
+  double usdAmount = double.parse(amount) / exchangeRates[currencyBase];
+
+  String output = (usdAmount * exchangeRates[currencyFinal]).toStringAsFixed(4);
+  convOut2 = output;
+  return output;
 }
 

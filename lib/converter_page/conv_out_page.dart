@@ -5,8 +5,9 @@ import 'package:bestest_calculator/converter_page/currencies_menu.dart';
 
 class ConversionOutputPage extends StatefulWidget {
   final String userInput;
-  final String convOutput;
+  String convOutput;
   final Map currencies;
+  //final rates;
   String dropdownValue1;
   String dropdownValue2;
    ConversionOutputPage({
@@ -14,6 +15,7 @@ class ConversionOutputPage extends StatefulWidget {
     required this.userInput,
     required this.convOutput,
     required this.currencies,
+    //required this.rates,
     required this.dropdownValue1,
     required this.dropdownValue2,
   });
@@ -40,17 +42,17 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                   child: Column(
                     children: [
                       Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: Alignment.bottomLeft,
                         child: Text(widget.userInput,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
-                              fontSize: 30,
+                              fontSize: _getFontSizeValue(widget.userInput),
                             ),
                         ),
                       ),
                       const Divider(
                         color: BlueWhite,
-                        thickness: 0.5,
+                        thickness: 1,
                       )
                     ],
                   ),
@@ -64,6 +66,7 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                         setState(() {
                           widget.dropdownValue1 = newValue!;
                           ddValue1 = newValue;
+                          widget.convOutput = '';
                         });
                       },
                     )
@@ -82,9 +85,9 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(widget.convOutput,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
-                            fontSize: 30,
+                            fontSize: _getFontSizeValue(widget.convOutput),
                           ),
                         ),
                       ),
@@ -104,6 +107,7 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                         setState(() {
                           widget.dropdownValue2 = newValue!;
                           ddValue2 = newValue;
+                          widget.convOutput = '';
                         });
                       },
                     )
@@ -115,5 +119,12 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
         ],
       ),
     );
+  }
+
+  double _getFontSizeValue(String input) {
+    if (input.length > 16) {
+      return (screenWidth(context) * 0.075) / 2;
+    }
+    return screenWidth(context) * 0.075;
   }
 }

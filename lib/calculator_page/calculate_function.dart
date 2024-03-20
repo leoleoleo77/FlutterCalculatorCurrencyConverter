@@ -17,7 +17,9 @@ String GetCalcResult(String input) {
     calcOut = removeLastChar(calcOut);
     return calcOut;
   } else if (input == 'C') {
-    calcOut = '';
+    if (calcOut != '') {
+      calcOut = '';
+    }
     lastCalcOut = '';
     return calcOut;
   } else if (input == '+') {
@@ -61,6 +63,8 @@ String GetCalcResult(String input) {
         String calcEval = _intify(_evaluate(_formatToMath(calcOut)));
         if (calcOut != calcEval) {
           lastCalcOut = calcOut;
+          convOut1 = calcEval;
+          convOut2 = '';
         }
         calcOut = calcEval.replaceAll('-', '−');
         return calcOut;
