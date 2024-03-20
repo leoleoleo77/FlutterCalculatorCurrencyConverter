@@ -158,17 +158,14 @@ class ButtonsPageState extends State<ButtonsPage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: ConverterBtn(
-                    btnDisplay: Icons.swap_vert,
-                    btnPressed: widget.updateInput,
-                    textSize: 40,
-                    btnColor: BoringLightGray,
-                    btnType: 'tall',
-                    borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(8)
-                    ),
+                ConverterBtn(
+                  btnDisplay: Icons.swap_vert,
+                  btnPressed: widget.updateInput,
+                  textSize: 40,
+                  btnColor: BoringLightGray,
+                  btnType: 'tall',
+                  borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(8)
                   ),
                 ),
               ],

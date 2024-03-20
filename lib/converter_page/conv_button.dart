@@ -44,7 +44,7 @@ class _ConverterBtnState extends State<ConverterBtn> {
           height: btnHeight(context),
           child: ElevatedButton(
               onPressed: () {
-                widget.btnPressed(widget.btnDisplay.toString().substring(0, 1));
+                widget.btnPressed(widget.btnDisplay.toString());
               },
               style: ButtonStyle(
                 backgroundColor: getColor(),//MaterialStateProperty.all<Color>(widget.btnColor!),

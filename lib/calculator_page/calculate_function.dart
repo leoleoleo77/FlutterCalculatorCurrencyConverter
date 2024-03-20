@@ -10,18 +10,18 @@ import 'package:math_expressions/math_expressions.dart';
 /// '+', '−', '÷', '×', '.' - add the operator to the output if the last character is numeric
 /// '=' - evaluate the mathematical expression in the output
 String GetCalcResult(String input) {
-  if (_isNumeric(input)) {
+  if (isNumeric(input)) {
     calcOut += input;
     return calcOut;
   } else if (input == 'I') {
-    calcOut = _removeLastChar(calcOut);
+    calcOut = removeLastChar(calcOut);
     return calcOut;
   } else if (input == 'C') {
     calcOut = '';
     lastCalcOut = '';
     return calcOut;
   } else if (input == '+') {
-    if (_isLastCharNumeric(calcOut)) {
+    if (isLastCharNumeric(calcOut)) {
       calcOut += input;
       return calcOut;
     } else if (_getLastChar(calcOut) == '−') {
@@ -29,7 +29,7 @@ String GetCalcResult(String input) {
       return calcOut;
     }
   } else if (input == '−') {
-    if (_isLastCharNumeric(calcOut) || _getLastChar(calcOut) == '×' || _getLastChar(calcOut) == '÷' || _getLastChar(calcOut) == '') {
+    if (isLastCharNumeric(calcOut) || _getLastChar(calcOut) == '×' || _getLastChar(calcOut) == '÷' || _getLastChar(calcOut) == '') {
       calcOut += input;
       return calcOut;
     } else if (_getLastChar(calcOut) == '+') {
@@ -37,25 +37,25 @@ String GetCalcResult(String input) {
       return calcOut;
     }
   } else if (input == '÷') {
-    if (_isLastCharNumeric(calcOut)) {
+    if (isLastCharNumeric(calcOut)) {
       calcOut += input;
       return calcOut;
     }
   } else if (input == '×') {
-    if (_isLastCharNumeric(calcOut)) {
+    if (isLastCharNumeric(calcOut)) {
       calcOut += input;
       return calcOut;
     }
   } else if (input == '.') {
-    if (_isLastNumberInt(calcOut)) {
-      if (!_isLastCharNumeric(calcOut)) {
+    if (isLastNumberInt(calcOut)) {
+      if (!isLastCharNumeric(calcOut)) {
         calcOut += '0';
       }
       calcOut += input;
       return calcOut;
     }
   } else if (input == '=') {
-    if (_isLastCharNumeric(calcOut)) {
+    if (isLastCharNumeric(calcOut)) {
       bool isInfinite = _evaluate(_formatToMath(calcOut)).contains('Infinity');
       if (!isInfinite) {
         String calcEval = _intify(_evaluate(_formatToMath(calcOut)));
@@ -71,7 +71,7 @@ String GetCalcResult(String input) {
 }
 
 /// This function checks if a string can be parsed into a number.
-bool _isNumeric(String s) {
+bool isNumeric(String s) {
   try {
     var value = num.parse(s);
     return true;
@@ -89,12 +89,12 @@ String _getLastChar(String s) {
 }
 
 /// This function checks if the last character of a string is numeric.
-bool _isLastCharNumeric(String s) {
-  return _isNumeric(_getLastChar(s));
+bool isLastCharNumeric(String s) {
+  return isNumeric(_getLastChar(s));
 }
 
 /// This function removes the last character of a string.
-String _removeLastChar(String s) {
+String removeLastChar(String s) {
   if (s == '') {
     return '';
   }
@@ -115,10 +115,10 @@ String _replaceLastChar(String s, String newChar) {
 }
 
 /// This function checks if the last number in a string is an integer.
-bool _isLastNumberInt(String s) {
+bool isLastNumberInt(String s) {
   int i = s.length - 1;
   while (i >= 0) {
-    if (_isNumeric(s[i])) {
+    if (isNumeric(s[i])) {
       i--;
     } else {
       if (s[i] == '.') {

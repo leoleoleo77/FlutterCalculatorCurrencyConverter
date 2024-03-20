@@ -1,10 +1,22 @@
 import 'package:bestest_calculator/eye_candy/ui_constants.dart';
-import 'package:dotted_line/dotted_line.dart';
+import 'package:bestest_calculator/saved_data.dart';
 import 'package:flutter/material.dart';
 import 'package:bestest_calculator/converter_page/currencies_menu.dart';
 
 class ConversionOutputPage extends StatefulWidget {
-  const ConversionOutputPage({super.key});
+  final String userInput;
+  final String convOutput;
+  final Map currencies;
+  String dropdownValue1;
+  String dropdownValue2;
+   ConversionOutputPage({
+    super.key,
+    required this.userInput,
+    required this.convOutput,
+    required this.currencies,
+    required this.dropdownValue1,
+    required this.dropdownValue2,
+  });
 
   @override
   ConversionOutputPageState createState() => ConversionOutputPageState();
@@ -13,12 +25,12 @@ class ConversionOutputPage extends StatefulWidget {
 class ConversionOutputPageState extends State<ConversionOutputPage> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 15.0, right: 15.0),
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0, right: 15.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Spacer(flex: 20),
+          const Spacer(flex: 20),
           Expanded(
             flex: 20,
             child: Row(
@@ -29,26 +41,32 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                     children: [
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Hello world",
-                            style: TextStyle(
+                        child: Text(widget.userInput,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 30,
                             ),
                         ),
                       ),
-                      DottedLine(
-                        direction: Axis.horizontal,
-                        alignment: WrapAlignment.center,
-                        dashColor: BlueWhite,
-                        lineThickness: 1,
-                        dashLength: 2,
+                      const Divider(
+                        color: BlueWhite,
+                        thickness: 0.5,
                       )
                     ],
                   ),
                 ),
                 Expanded(
                     flex: 1,
-                    child: CurrenciesMenu()
+                    child: CurrenciesMenu(
+                      value: widget.dropdownValue1,
+                      currencies: widget.currencies,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          widget.dropdownValue1 = newValue!;
+                          ddValue1 = newValue;
+                        });
+                      },
+                    )
                 ),
               ],
             ),
@@ -63,31 +81,37 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
                     children: [
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Hello world",
-                          style: TextStyle(
+                        child: Text(widget.convOutput,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 30,
                           ),
                         ),
                       ),
-                      DottedLine(
-                        direction: Axis.horizontal,
-                        alignment: WrapAlignment.center,
-                        dashColor: BoringLightGray,
-                        lineThickness: 2,
-                        dashLength: 2,
-                      )
+                      const Divider(
+                        color: BoringLightGray,
+                        thickness: 2,
+                      ),
                     ],
                   ),
                 ),
                 Expanded(
                     flex: 1,
-                    child: CurrenciesMenu()
+                    child: CurrenciesMenu(
+                      value: widget.dropdownValue2,
+                      currencies: widget.currencies,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          widget.dropdownValue2 = newValue!;
+                          ddValue2 = newValue;
+                        });
+                      },
+                    )
                 ),
               ],
             ),
           ),
-          Spacer(flex: 15),
+          const Spacer(flex: 15),
         ],
       ),
     );

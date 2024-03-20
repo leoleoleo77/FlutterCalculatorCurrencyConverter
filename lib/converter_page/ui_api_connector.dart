@@ -59,8 +59,8 @@ class _ConnectorState extends State<Connector> {
                     );
                   } else {
                     return ConversionPage(
-                      //rates: snapshot.data!.rates,
-                      //currencies: index.data!,
+                      rates: snapshot.data!.rates,
+                      currencies: index.data!,
                     );
                   }
                 }

@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage>
               //physics: const NeverScrollableScrollPhysics(),
               children: const <Widget>[
                 CalculatorPage(),
-                ConversionPage(),
+                Connector(),
               ],
             ),
           ),
