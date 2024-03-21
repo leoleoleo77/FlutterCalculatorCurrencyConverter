@@ -5,7 +5,7 @@ A **Flutter** calculator and currency conventor app for Android. Perform basic c
 [Download here](https://www.dropbox.com/scl/fi/tzbi9qkckndky7vvl77he/app-release_1.2.apk?rlkey=xgxk55bvvt09pbyjdy0n59b8u&dl=0) (will redirect you to Dropbox)
 ## Design & Code influences
 1. [UI inspiration](https://www.figma.com/community/file/1207732029094166615/calculator-mobile-app-ui-deisgn)
-2. [Open Exhancge Rates API implementation](https://github.com/saadshd/Flutter-Currency-Converter)
-3. [Calculator Function](https://github.com/saadshd/calculator)
+2. [Open Exhancge Rates API implementation & currency conventor function](https://github.com/saadshd/Flutter-Currency-Converter)
+3. [Calculator function](https://github.com/saadshd/calculator)
 
 
