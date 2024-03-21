@@ -1,4 +1,4 @@
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
@@ -18,14 +18,6 @@ class CurrenciesMenu extends StatelessWidget {
     return Align(
       alignment: Alignment.topRight,
       child: DropdownButton2<String>(
-        //dropdownColor: MidnightGray,
-        //menuMaxHeight: screenHeight(context) * 0.6,
-        //padding: const EdgeInsets.only(left: 35),
-        //value: value,
-        /*icon: const Icon(
-            Icons.arrow_drop_down,
-            color: BlueWhite,
-          ),*/
         iconStyleData: const IconStyleData(
           icon: Icon(
             Icons.arrow_drop_down,
@@ -33,7 +25,6 @@ class CurrenciesMenu extends StatelessWidget {
           iconSize: 24,
           iconEnabledColor: BlueWhite,
         ),
-
         dropdownStyleData: DropdownStyleData(
           maxHeight: screenHeight(context) * 0.5,
           width: screenWidth(context) * 0.7,

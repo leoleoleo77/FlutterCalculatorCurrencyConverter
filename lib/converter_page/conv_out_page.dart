@@ -1,5 +1,5 @@
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
-import 'package:bestest_calculator/saved_data.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
+import 'package:bestest_calculator/general/saved_data.dart';
 import 'package:flutter/material.dart';
 import 'package:bestest_calculator/converter_page/currencies_menu.dart';
 
@@ -121,6 +121,7 @@ class ConversionOutputPageState extends State<ConversionOutputPage> {
     );
   }
 
+  /// This function returns a double value that is used to determine the font size of the input text
   double _getFontSizeValue(String input) {
     if (input.length > 16) {
       return (screenWidth(context) * 0.075) / 2;

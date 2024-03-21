@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/converter_page/conv_button.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/my_button.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 
 /// A page containing the layout for the converter buttons.
 class ButtonsPage extends StatefulWidget {
@@ -17,7 +17,7 @@ class ButtonsPage extends StatefulWidget {
 class ButtonsPageState extends State<ButtonsPage> {
   @override
   Widget build(BuildContext context) {
-    // The main layout of the page is a column of rows, each containing calculator buttons.
+    // The main layout of the page is a column of rows, each containing buttons.
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Column(
@@ -28,7 +28,7 @@ class ButtonsPageState extends State<ButtonsPage> {
               padding: const EdgeInsets.only(top: 5.0),
               child: Row(
                 children: [
-                  ConverterBtn(
+                  CustomBtn(
                     btnDisplay: 'Convert',
                     textSize: 25,
                     btnPressed: widget.updateInput,
@@ -49,22 +49,22 @@ class ButtonsPageState extends State<ButtonsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '7',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '8',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '9',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: Icons.backspace_outlined,
                   textSize: 25,
                   btnPressed: widget.updateInput,
@@ -73,32 +73,31 @@ class ButtonsPageState extends State<ButtonsPage> {
               ],
             ),
           ),
-          // The fourth and fifth row of buttons: '1', '2', '3', '0', '.', and '='.
           Expanded(
             flex: 195,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '4',
                   textSize: 25,
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '5',
                   textSize: 25,
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: '6',
                   textSize: 25,
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: 'AC',
                   textSize: 25,
                   btnPressed: widget.updateInput,
@@ -119,17 +118,17 @@ class ButtonsPageState extends State<ButtonsPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ConverterBtn(
+                          CustomBtn(
                             btnDisplay: '1',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
                           ),
-                          ConverterBtn(
+                          CustomBtn(
                             btnDisplay: '2',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
                           ),
-                          ConverterBtn(
+                          CustomBtn(
                             btnDisplay: '3',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
@@ -139,7 +138,7 @@ class ButtonsPageState extends State<ButtonsPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ConverterBtn(
+                          CustomBtn(
                             btnDisplay: '0',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
@@ -148,7 +147,7 @@ class ButtonsPageState extends State<ButtonsPage> {
                                 bottomLeft: Radius.circular(8)
                             ),
                           ),
-                          ConverterBtn(
+                          CustomBtn(
                             btnDisplay: '.',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
@@ -158,7 +157,7 @@ class ButtonsPageState extends State<ButtonsPage> {
                     ],
                   ),
                 ),
-                ConverterBtn(
+                CustomBtn(
                   btnDisplay: Icons.swap_vert,
                   btnPressed: widget.updateInput,
                   textSize: 40,

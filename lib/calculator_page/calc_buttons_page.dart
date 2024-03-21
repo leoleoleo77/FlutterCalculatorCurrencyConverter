@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/calculator_page/calc_button.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
+import 'package:bestest_calculator/general/my_button.dart';
 
 /// A page containing the layout for the calculator buttons.
 class ButtonsPage extends StatefulWidget {
@@ -30,7 +30,7 @@ class ButtonsPageState extends State<ButtonsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CalculatorBtn(
+                CustomBtn(
                     btnDisplay: 'C',
                     textSize: 25,
                     btnPressed: widget.updateInput,
@@ -39,19 +39,19 @@ class ButtonsPageState extends State<ButtonsPage> {
                       topLeft: Radius.circular(8)
                     ),
                 ),
-                CalculatorBtn(
+                CustomBtn(
                     btnDisplay: '÷',
                     textSize: 35,
                     btnPressed: widget.updateInput,
                     btnColor: BoringLightGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                     btnDisplay: '×',
                     textSize: 40,
                     btnPressed: widget.updateInput,
                     btnColor: BoringLightGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: Icons.backspace_outlined,
                   textSize: 25,
                   btnPressed: widget.updateInput,
@@ -71,22 +71,22 @@ class ButtonsPageState extends State<ButtonsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '7',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '8',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                     btnDisplay: '9',
                     btnPressed: widget.updateInput,
                     btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '−',
                   textSize: 40,
                   btnPressed: widget.updateInput,
@@ -103,22 +103,22 @@ class ButtonsPageState extends State<ButtonsPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '4',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '5',
                   btnPressed: widget.updateInput,
                   btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                     btnDisplay: '6',
                     btnPressed: widget.updateInput,
                     btnColor: NumberGray,
                 ),
-                CalculatorBtn(
+                CustomBtn(
                   btnDisplay: '+',
                   textSize: 40,
                   btnPressed: widget.updateInput,
@@ -134,24 +134,24 @@ class ButtonsPageState extends State<ButtonsPage> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 75,
+                  flex: 3,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CalculatorBtn(
+                          CustomBtn(
                             btnDisplay: '1',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
                           ),
-                          CalculatorBtn(
+                          CustomBtn(
                             btnDisplay: '2',
                             btnPressed: widget.updateInput,
                             btnColor: NumberGray,
                           ),
-                          CalculatorBtn(
+                          CustomBtn(
                               btnDisplay: '3',
                               btnPressed: widget.updateInput,
                               btnColor: NumberGray,
@@ -161,16 +161,16 @@ class ButtonsPageState extends State<ButtonsPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CalculatorBtn(
+                          CustomBtn(
                               btnDisplay: '0',
                               btnPressed: widget.updateInput,
                               btnColor: NumberGray,
-                              btnType: 'wide',
+                              flexVal: 2,
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(8)
                               ),
                           ),
-                          CalculatorBtn(
+                          CustomBtn(
                               btnDisplay: '.',
                               btnPressed: widget.updateInput,
                               btnColor: NumberGray,
@@ -180,20 +180,14 @@ class ButtonsPageState extends State<ButtonsPage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  flex: 25,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 4.0, left: 1.0),
-                    child: CalculatorBtn(
-                      btnDisplay: '=',
-                      btnPressed: widget.updateInput,
-                      textSize: 40,
-                      btnColor: ActiveBlue,
-                      btnType: 'tall',
-                      borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular(8)
-                      ),
-                    ),
+                CustomBtn(
+                  btnDisplay: '=',
+                  btnPressed: widget.updateInput,
+                  textSize: 40,
+                  btnColor: ActiveBlue,
+                  btnType: 'tall',
+                  borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(8)
                   ),
                 ),
               ],

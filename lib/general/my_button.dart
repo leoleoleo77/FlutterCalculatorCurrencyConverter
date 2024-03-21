@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 
 /// A custom button for a calculator.
 ///
 /// This is a stateless widget that creates a button with customizable properties.
 /// The button can have different colors, text, text size, and border radius.
 /// The button can also be of different types: 'default', 'wide', or 'tall'.
-class CalculatorBtn extends StatefulWidget {
+class CustomBtn extends StatefulWidget {
   final Color? btnColor;
   final Color? textColor;
   final dynamic btnDisplay;   /// The text or icon to be displayed on the button.
@@ -14,9 +14,10 @@ class CalculatorBtn extends StatefulWidget {
   final String btnType;       /// The type of the button: 'default', 'wide', or 'tall'.
   final BorderRadius borderRadius;
   final ValueChanged<String> btnPressed;
+  final int flexVal;
 
-  /// Creates a [CalculatorBtn].
-  const CalculatorBtn({
+  /// Creates a [CustomBtn].
+  const CustomBtn({
     super.key,
     this.btnColor,
     this.btnType = 'default',
@@ -24,39 +25,39 @@ class CalculatorBtn extends StatefulWidget {
     required this.btnDisplay,
     required this.btnPressed,
     this.textSize = 28,
+    this.flexVal = 1,
     this.borderRadius = const BorderRadius.all(Radius.circular(0)), /// By default the button has no rounded corners
   });
 
   @override
-  State<CalculatorBtn> createState() => _CalculatorBtnState();
+  State<CustomBtn> createState() => _CustomBtnState();
 }
 
-class _CalculatorBtnState extends State<CalculatorBtn> {
+class _CustomBtnState extends State<CustomBtn> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: btnWidth(context),
-      height: btnHeight(context),
-      child: ElevatedButton(
-          onPressed: () {
-            widget.btnPressed(widget.btnDisplay.toString().substring(0, 1));
-          },
-          /*style: TextButton.styleFrom(
-            splashFactory: NoSplash.splashFactory,
-            textStyle: const TextStyle(
-              fontWeight: FontWeight.normal,
-            ),
-          ),*/
-          style: ButtonStyle(
-            backgroundColor: getColor(),//MaterialStateProperty.all<Color>(widget.btnColor!),
-            splashFactory: NoSplash.splashFactory,
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: widget.borderRadius,
+    return Expanded(
+      flex: widget.flexVal,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 2, right: 2),
+        child: SizedBox(
+          height: btnHeight(context),
+          child: ElevatedButton(
+              onPressed: () {
+                widget.btnPressed(widget.btnDisplay.toString());
+              },
+              style: ButtonStyle(
+                backgroundColor: getColor(),//MaterialStateProperty.all<Color>(widget.btnColor!),
+                splashFactory: NoSplash.splashFactory,
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: widget.borderRadius,
+                  ),
+                ),
               ),
-            ),
+              child: btnCover()
           ),
-          child: btnCover()
+        ),
       ),
     );
   }
@@ -72,22 +73,12 @@ class _CalculatorBtnState extends State<CalculatorBtn> {
     return MaterialStateProperty.resolveWith(getColor);
   }
 
-  /// Returns the width of the button based on its type.
-  double btnWidth(BuildContext context) {
-    if (widget.btnType == 'wide') {
-      return screenWidth(context) * 0.46 + 5;
-    } else if (widget.btnType == 'conv') {
-      return screenWidth(context) * 0.25;
-    }
-    return screenWidth(context) * 0.23;
-  }
-
   /// Returns the height of the button based on its type.
   double btnHeight(BuildContext context) {
     if (widget.btnType == 'tall') {
-      return screenHeight(context) * 0.20 + 5;
+      return screenHeight(context) * 0.2 + 5;
     }
-    return screenHeight(context) * 0.10;
+    return screenHeight(context) * 0.1;
   }
 
   /// Returns the text or icon to be displayed on the button.

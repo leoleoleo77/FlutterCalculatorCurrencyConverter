@@ -10,6 +10,7 @@ const Color BoringLightGray = Color.fromRGBO(54, 62, 76, 1.0);
 const Color NumberGray = Color.fromRGBO(36, 41, 51, 1.0);
 const Color BlueWhite = Color.fromRGBO(216, 239, 248, 1.0);
 
+/// get the width and the height of the screen
 double screenWidth(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }

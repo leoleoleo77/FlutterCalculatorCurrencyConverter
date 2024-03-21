@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
-import 'package:flutter/widgets.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 
 class ResultPage extends StatefulWidget {
   final String input;
@@ -19,14 +17,6 @@ class ResultPage extends StatefulWidget {
 }
 
 class ResultPageState extends State<ResultPage> {
-  double _fontMultiplier()  {
-    if (widget.input.length > 6 && widget.input.length < 20) {
-      return 0.15 * (5 / widget.input.length);
-    } else if (widget.input.length >= 20) {
-      return 0.15 * (5 / 20);
-    }
-    return 0.12;
-  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -57,6 +47,16 @@ class ResultPageState extends State<ResultPage> {
         ],
       ),
     );
+  }
+
+  /// This function returns a double value that is used to determine the font size of the input text
+  double _fontMultiplier()  {
+    if (widget.input.length > 6 && widget.input.length < 20) {
+      return 0.15 * (5 / widget.input.length);
+    } else if (widget.input.length >= 20) {
+      return 0.15 * (5 / 20);
+    }
+    return 0.12;
   }
 }
 

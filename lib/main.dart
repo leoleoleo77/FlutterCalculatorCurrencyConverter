@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:bestest_calculator/home_page.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
+import 'package:flutter/services.dart';
 
-//https://www.figma.com/community/file/1207732029094166615/calculator-mobile-app-ui-deisgn
-//https://www.scalefocus.com/wp-content/uploads/2023/10/SF_ScaleCalc_banner_ipad_1d-1536x1151.webp
+
+/// The main function of the application.
+/// It ensures that the widget binding is initialized before running the app.
+/// It also sets the preferred orientation of the app to portrait mode.
+/// In other words, the app will only be displayed in portrait mode.
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp,
+       DeviceOrientation.portraitDown]
+      ).then((_) {
+        runApp(const MyApp());
+      },
+  );
 }
 
 class MyApp extends StatelessWidget {

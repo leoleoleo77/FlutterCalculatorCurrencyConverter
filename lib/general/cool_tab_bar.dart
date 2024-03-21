@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 
 /// This class is a StatefulWidget that creates a TabBar
 /// I created a separate class for the TabBar to make the code more readable

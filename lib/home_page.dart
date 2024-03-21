@@ -1,9 +1,8 @@
 import 'package:bestest_calculator/converter_page/converter_main.dart';
-import 'package:bestest_calculator/eye_candy/ui_constants.dart';
+import 'package:bestest_calculator/general/ui_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:bestest_calculator/eye_candy/cool_tab_bar.dart';
+import 'package:bestest_calculator/general/cool_tab_bar.dart';
 import 'package:bestest_calculator/calculator_page/calculator_main.dart';
-import 'package:bestest_calculator/converter_page/ui_api_connector.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
