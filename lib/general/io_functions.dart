@@ -17,10 +17,10 @@ String handleCalcInput(String input) {
     calcOut += input;
     return calcOut;
 
-  /// If the input is 'I', remove the last character from the output.
+  /// If the input is 'IconData(U+0EEB5)', remove the last character from the output.
   /// The _removeLastChar() function checks if the output is empty before removing the last character.
   /// So there is no need to do it here.
-  } else if (input == 'I') {
+  } else if (input == 'IconData(U+0EEB5)') {
     calcOut = _removeLastChar(calcOut);
     return calcOut;
 
