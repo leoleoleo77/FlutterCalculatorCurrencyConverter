@@ -1,4 +1,4 @@
-# Calculator & Currency Convertor App - Flutter
+# Calculator & Currency Converter App - Flutter
 ## Introduction
 A **Flutter** calculator and currency conventer app for Android. Perform basic calculations with ease, then seamlessly switch to convert currencies using real-time exchange rates powered by the [Open Exchange Rates API](https://openexchangerates.org/).
 ## Download APK
